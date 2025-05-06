@@ -1038,8 +1038,13 @@
             document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });
         });
         
-        document.getElementById('footerCtaButton').addEventListener('click', function() {
-            document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });
+// footerCtaButton이 존재하는지 확인 후 이벤트 리스너 추가
+var footerButton = document.getElementById('footerCtaButton');
+if (footerButton) {
+    footerButton.addEventListener('click', function() {
+        document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });
+    });
+}
         });
     </script>
 </body>
