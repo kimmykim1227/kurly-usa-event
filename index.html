@@ -819,12 +819,19 @@
             }
         }
         
-        /* Viral Loops 커스텀 스타일 */
-        #viral-loops-form {
+        /* form-widget 커스텀 스타일 */
+        form-widget {
             font-family: 'Noto Sans KR', 'Roboto', sans-serif;
+            display: block;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
-        #viral-loops-form input {
+        form-widget input {
             width: 100%;
             padding: 12px;
             border: 1px solid var(--gray);
@@ -833,16 +840,16 @@
             margin-bottom: 16px;
         }
 
-        #viral-loops-form input:focus {
+        form-widget input:focus {
             outline: none;
             border-color: var(--primary);
         }
 
-        #viral-loops-form button {
+        form-widget button {
             width: 100%;
             padding: 14px;
-            background-color: var(--primary);
-            color: var(--white);
+            background-color: var(--primary) !important;
+            color: var(--white) !important;
             border: none;
             border-radius: 4px;
             font-size: 16px;
@@ -851,35 +858,26 @@
             transition: background-color 0.3s;
         }
 
-        #viral-loops-form button:hover {
-            background-color: var(--primary-dark);
+        form-widget button:hover {
+            background-color: var(--primary-dark) !important;
         }
 
-        #viral-loops-form label {
+        form-widget label {
             display: block;
             margin-bottom: 8px;
             font-size: 14px;
         }
 
-        #viral-loops-form .vl-checkbox-group {
+        form-widget .checkbox-group {
             display: flex;
             align-items: flex-start;
             margin-bottom: 16px;
         }
 
-        #viral-loops-form .vl-checkbox-group input[type="checkbox"] {
+        form-widget .checkbox-group input[type="checkbox"] {
             margin-right: 8px;
             margin-top: 4px;
             width: auto;
-        }
-
-        #viral-loops-form .vl-success-message {
-            background-color: #e8f5e9;
-            color: #2e7d32;
-            padding: 16px;
-            border-radius: 4px;
-            margin-top: 24px;
-            text-align: center;
         }
     </style>
     <script id="viral-loops-loader" data-campaign-id="QJDX1Y4BzFrz8Aul8BKX4BxH93Y" src="https://app.viral-loops.com/widgetsV2/core/loader.js"></script>
@@ -918,26 +916,12 @@
         </div>
     </section>
     
-    <!-- 오픈 알림 신청 폼 섹션 (Viral Loops) -->
+    <!-- 오픈 알림 신청 폼 섹션 (Viral Loops with form-widget) -->
     <section class="signup-section" id="signup">
         <div class="container">
-            <div id="viral-loops-form"></div>
-
-            <script>
-                window.addEventListener('load', function() {
-                    if (window.ViralLoops) {
-                        window.ViralLoops.createForm({
-                            campaignId: 'QJDX1Y4BzFrz8Aul8BKX4BxH93Y',
-                            variant: 'form',
-                            containerId: 'viral-loops-form'
-                        });
-                    }
-                });
-            </script>
+            <form-widget ucid="QJDX1Y4BzFrz8Aul8BKX4BxH93Y" mode="form"></form-widget>
         </div>
     </section>
-    
-
     
     <!-- FAQ 섹션 -->
     <section class="faq-section" id="faq">
@@ -1038,14 +1022,13 @@
             document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });
         });
         
-// footerCtaButton이 존재하는지 확인 후 이벤트 리스너 추가
-var footerButton = document.getElementById('footerCtaButton');
-if (footerButton) {
-    footerButton.addEventListener('click', function() {
-        document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });
-    });
-}
-        });
+        // footerCtaButton이 존재하는지 확인 후 이벤트 리스너 추가
+        var footerButton = document.getElementById('footerCtaButton');
+        if (footerButton) {
+            footerButton.addEventListener('click', function() {
+                document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });
+            });
+        }
     </script>
 </body>
 </html>
