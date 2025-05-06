@@ -817,7 +817,71 @@
                 max-width: 1200px;
             }
         }
+        
+        /* Viral Loops 커스텀 스타일 */
+        #viral-loops-form {
+            font-family: 'Noto Sans KR', 'Roboto', sans-serif;
+        }
+
+        #viral-loops-form input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--gray);
+            border-radius: 4px;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        #viral-loops-form input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        #viral-loops-form button {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #viral-loops-form button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        #viral-loops-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        #viral-loops-form .vl-checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        #viral-loops-form .vl-checkbox-group input[type="checkbox"] {
+            margin-right: 8px;
+            margin-top: 4px;
+            width: auto;
+        }
+
+        #viral-loops-form .vl-success-message {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            padding: 16px;
+            border-radius: 4px;
+            margin-top: 24px;
+            text-align: center;
+        }
     </style>
+    <script id="viral-loops-loader" data-campaign-id="QJDX1Y4BzFrz8Aul8BKX4BxH93Y" src="https://app.viral-loops.com/widgetsV2/core/loader.js"></script>
 </head>
 <body>
     <!-- 헤더 -->
@@ -917,36 +981,189 @@
                     <p>지금 오픈 알림 신청하고, 오픈 소식을 가장 먼저 받아보세요!</p>
                     <p>개인정보 동의 후, 인터뷰 희망 시 체크하시면 됩니다.</p>
                 </div>
-                <form id="signupForm">
-                    <div class="form-group">
-                        <label for="email">이메일 (필수)</label>
-                        <input type="email" id="email" required placeholder="example@email.com">
+                <!-- 여기에 Viral Loops 폼 위젯이 들어갑니다 -->
+                <div id="viral-loops-form"></div>
+
+                <script>
+                    window.addEventListener('load', function() {
+                        if (window.ViralLoops) {
+                            window.ViralLoops.createForm({
+                                campaignId: 'QJDX1Y4BzFrz8Aul8BKX4BxH93Y',
+                                variant: 'form',
+                                containerId: 'viral-loops-form'
+                            });
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 리더보드 섹션 -->
+    <section class="leaderboard" id="leaderboard">
+        <div class="container">
+            <h2 class="section-title">커뮤니티 리더보드</h2>
+            <div class="counter">
+                <p>현재까지 알림 신청자 수</p>
+                <span class="counter-number">0</span>
+                <p>오픈까지 남은 시간</p>
+                <span class="counter-number">30일</span>
+            </div>
+            <div class="leaderboard-container">
+                <h3 class="leaderboard-title">커뮤니티 랭킹 TOP 5</h3>
+                <div class="leaderboard-item">
+                    <div class="leaderboard-rank">1</div>
+                    <div class="leaderboard-name">LA ○○교회</div>
+                    <div class="leaderboard-count">32명</div>
+                </div>
+                <div class="leaderboard-item">
+                    <div class="leaderboard-rank">2</div>
+                    <div class="leaderboard-name">뉴욕 ○○대학교 한인회</div>
+                    <div class="leaderboard-count">28명</div>
+                </div>
+                <div class="leaderboard-item">
+                    <div class="leaderboard-rank">3</div>
+                    <div class="leaderboard-name">시카고 한인회</div>
+                    <div class="leaderboard-count">24명</div>
+                </div>
+                <div class="leaderboard-item">
+                    <div class="leaderboard-rank">4</div>
+                    <div class="leaderboard-name">샌프란시스코 ○○교회</div>
+                    <div class="leaderboard-count">21명</div>
+                </div>
+                <div class="leaderboard-item">
+                    <div class="leaderboard-rank">5</div>
+                    <div class="leaderboard-name">휴스턴 한인 모임</div>
+                    <div class="leaderboard-count">18명</div>
+                </div>
+                <div class="leaderboard-note">
+                    <p>리더보드는 매일 자정에 업데이트됩니다.</p>
+                    <p>친구를 초대하고 커뮤니티 랭킹을 올려보세요!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ 섹션 -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <h2 class="section-title">자주 묻는 질문</h2>
+            <div class="faq-container">
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <h3>Kurly USA는 언제 오픈하나요?</h3>
+                        <div class="accordion-icon">▼</div>
                     </div>
-                    <div class="form-group">
-                        <label for="phone">휴대폰 번호 (선택)</label>
-                        <input type="tel" id="phone" placeholder="(123) 456-7890">
+                    <div class="accordion-content">
+                        <p>Kurly USA는 2025년 하반기 중 오픈 예정입니다. 정확한 오픈 일정은 사전 알림 신청자에게 우선적으로 안내해 드릴 예정입니다.</p>
                     </div>
-                    <div class="form-group">
-                        <label for="name">이름/닉네임 (필수)</label>
-                        <input type="text" id="name" required placeholder="이름 또는 닉네임">
+                </div>
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <h3>어떤 상품들을 판매하나요?</h3>
+                        <div class="accordion-icon">▼</div>
                     </div>
-                    <div class="form-group">
-                        <label for="community">소속 커뮤니티 (선택)</label>
-                        <input type="text" id="community" placeholder="예: LA○○교회, ○○대학교 등">
+                    <div class="accordion-content">
+                        <p>Kurly USA에서는 한국의 프리미엄 식품, 신선 식품, 유기농 제품, 건강식품, 간편식, K-Food 등 다양한 상품을 판매할 예정입니다.</p>
                     </div>
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="interview">
-                        <label for="interview">인터뷰 참여시 20달러 상당 보상 (30분 내외 온라인 인터뷰)</label>
+                </div>
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <h3>배송은 얼마나 걸리나요?</h3>
+                        <div class="accordion-icon">▼</div>
                     </div>
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="agreement" required>
-                        <label for="agreement">Kurly 오픈 관련 정보 수신에 동의합니다 (필수)</label>
+                    <div class="accordion-content">
+                        <p>미국 전역 48시간 이내 배송을 목표로 합니다. 일부 지역은 배송일이 다를 수 있으며, 정확한 배송 정보는 오픈 시 안내해 드릴 예정입니다.</p>
                     </div>
-                    <button type="submit" class="submit-btn">오픈 알림 신청 완료하기</button>
-                </form>
-                <div class="success-message" id="successMessage">
-                    <h3>오픈 알림 신청 완료!</h3>
-                    <p>초대 링크를 공유하면 10% 할인 쿠폰이 추가 적립됩니다.</p>
-                    <div class="share-buttons">
-                        <div class="share-button">K</div>
-                        <div class="share-button">
+                </div>
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <h3>친구 초대는 어떻게 하나요?</h3>
+                        <div class="accordion-icon">▼</div>
+                    </div>
+                    <div class="accordion-content">
+                        <p>오픈 알림 신청 완료 후 받으시는 이메일에 초대 링크가 포함되어 있습니다. 해당 링크를 친구들에게 공유하시면 됩니다.</p>
+                    </div>
+                </div>
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <h3>인터뷰는 어떻게 진행되나요?</h3>
+                        <div class="accordion-icon">▼</div>
+                    </div>
+                    <div class="accordion-content">
+                        <p>인터뷰 희망 시 체크하시면, 별도로 이메일을 통해 30분 내외의 화상 인터뷰 일정을 조율해 드립니다. 인터뷰 참여 시 20달러 상당의 Kurly 포인트를 드립니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 푸터 -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-info">
+                <div class="footer-logo">Kurly USA</div>
+                <div class="footer-contact">
+                    <p>문의: info@kurlyusa.com</p>
+                    <p>주소: 123 Market St, San Francisco, CA 94105</p>
+                    <p>전화: (123) 456-7890</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-icon">F</a>
+                    <a href="#" class="social-icon">I</a>
+                    <a href="#" class="social-icon">Y</a>
+                </div>
+            </div>
+            <div class="footer-cta">
+                <p>미국에서도 편리하게 즐기는 한국 식품!</p>
+                <p>지금 바로 오픈 알림을 신청하세요.</p>
+                <button class="cta-button" id="footerCtaButton">오픈 알림 신청하기</button>
+            </div>
+            <div class="footer-copyright">
+                <p>© 2025 Kurly USA. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- 모달 -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">오픈 알림 신청하기</h3>
+                <button class="modal-close" id="modalClose">✕</button>
+            </div>
+            <div class="modal-content" id="modalContent">
+                <!-- 모달 내용은 자바스크립트로 동적 생성 -->
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 메뉴 토글
+        document.getElementById('menuButton').addEventListener('click', function() {
+            document.getElementById('sideMenu').classList.add('active');
+        });
+        
+        document.getElementById('closeMenu').addEventListener('click', function() {
+            document.getElementById('sideMenu').classList.remove('active');
+        });
+        
+        // 아코디언 기능
+        const accordions = document.querySelectorAll('.accordion');
+        accordions.forEach(accordion => {
+            accordion.querySelector('.accordion-header').addEventListener('click', function() {
+                accordion.classList.toggle('active');
+            });
+        });
+        
+        // 버튼 클릭 시 폼으로 스크롤
+        document.getElementById('heroCtaButton').addEventListener('click', function() {
+            document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        document.getElementById('footerCtaButton').addEventListener('click', function() {
+            document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
